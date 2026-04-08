@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今日運勢占卜</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Microsoft JhengHei", sans-serif;
+      background: linear-gradient(135deg, #ffd6e7, #d6ecff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 520px;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff4f8b;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      line-height: 1.6;
+    }
+
+    button {
+      background: #ff6fa5;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #ff4f8b;
+    }
+
+    .result-box {
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff5fa;
+      border-radius: 15px;
+      border: 2px dashed #ffb3cf;
+      min-height: 120px;
+    }
+
+    .type {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e63e7b;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✨ 今日運勢占卜 ✨</h1>
+    <p>按下按鈕，看看你今天的運勢！</p>
+
+    <button onclick="showFortune()">開始占卜</button>
+    <button onclick="showFortune()">再占卜一次</button>
+
+    <div class="result-box" id="result">
+      <div class="type">結果會顯示在這裡</div>
+      <p>點按鈕後會出現你的今日運勢。</p>
+    </div>
+  </div>
+
+  <script>
+    const fortunes = [
+      {
+        name: "大吉",
+        description: "今天的你運氣很好，做事容易順利，適合開始新的計畫。",
+        quote: "相信自己，好運就在前方。"
+      },
+      {
+        name: "學業運上升",
+        description: "今天讀書效率不錯，適合整理筆記、背重點和準備考試。",
+        quote: "現在多努力一點，以後就輕鬆一點。"
+      },
+      {
+        name: "愛情小幸運",
+        description: "今天在人際互動上很順利，容易感受到別人的善意。",
+        quote: "溫柔一點，世界也會溫柔回應你。"
+      },
+      {
+        name: "財運普通",
+        description: "今天花錢前先想一下，比較能避免衝動消費。",
+        quote: "守住荷包，也是一種實力。"
+      },
+      {
+        name: "工作順利",
+        description: "今天做事穩定，適合把拖延很久的事情完成。",
+        quote: "慢慢做，也能把事情做好。"
+      },
+      {
+        name: "需要休息",
+        description: "今天的你有點疲累，建議放慢腳步，不要太逼自己。",
+        quote: "休息不是偷懶，是為了走更遠。"
+      },
+      {
+        name: "驚喜降臨",
+        description: "今天可能會遇到意想不到的好消息，記得保持好心情。",
+        quote: "驚喜有時就藏在平凡的一天裡。"
+      },
+      {
+        name: "友情運佳",
+        description: "今天適合和朋友聊天互動，容易得到支持和鼓勵。",
+        quote: "有人陪你一起努力，就是幸福。"
+      },
+      {
+        name: "小心分心",
+        description: "今天容易被外界影響，做事時記得專心。",
+        quote: "專注一點，你會更厲害。"
+      },
+      {
+        name: "平穩幸運",
+        description: "今天整體運勢平穩，雖然沒有大驚喜，但很安心。",
+        quote: "平平穩穩，也是很珍貴的幸福。"
+      }
+    ];
+
+    function showFortune() {
+      const randomIndex = Math.floor(Math.random() * fortunes.length);
+      const fortune = fortunes[randomIndex];
+
+      document.getElementById("result").innerHTML = `
+        <div class="type">${fortune.name}</div>
+        <p>${fortune.description}</p>
+        <p>${fortune.quote}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
